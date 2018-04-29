@@ -1,0 +1,17 @@
+
+<!doctype html>
+<title>Class Gradebook</title>
+<div class=page>
+  <h1>Course Information</h1>
+  <div class=metanav>
+  {% if not session.logged_in %}
+    <a href="{{ url_for('login') }}">log in</a><br>
+  {% else %}
+    <a href="{{ url_for('logout') }}">log out</a><br>
+  {% endif %}
+  </div><br>
+  {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+  {% endfor %}
+  {% block body %}{% endblock %}
+</div>
